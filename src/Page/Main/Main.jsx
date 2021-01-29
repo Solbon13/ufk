@@ -12,7 +12,7 @@ const Main = (props) => {
         <BrowserRouter>
             <div>
                 <Header />
-                <Filters />
+                <Filters filteringTheList = {props.filteringTheList}/>
                 <Route exact path='/' render ={()=><News newsData={props.newsData}/>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />

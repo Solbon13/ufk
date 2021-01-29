@@ -3,9 +3,10 @@ import Header from './Blocks/Header/Header';
 import Main from './Page/Main/Main';
 
 const App = (props) => {
+  debugger
   return (
     <div className={s.container}> 
-      <Main newsData={props.newsData}/>
+      <Main newsData={props.newsData} filteringTheList = {props.filteringTheList}/>
     </div>
   );
 }

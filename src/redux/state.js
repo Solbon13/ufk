@@ -7,4 +7,8 @@ let state = {
       ]
 }
 
+export let filteringTheList = (text) => {
+    state.newsData = state.newsData.filter((el) => el === 'text1')
+}
+
 export default state

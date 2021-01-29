@@ -3,13 +3,13 @@ import React from 'react'
 import s from './Filters.module.css'
 import InputField from '../../Components/InputFind/InputFind'
 
-const Filters = () => {
+const Filters = (props) => {
 
     let filterString =React.createRef()
 
     let testOnClick = () => {
         let text = filterString.current.value;
-        alert(text)
+        props.filteringTheList(text)
     }
 
     return (
