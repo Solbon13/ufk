@@ -1,13 +1,11 @@
-import './App.css';
+import s from'./App.module.css';
+import Header from './Blocks/Header/Header';
+import Main from './Page/Main/Main';
 
 const App = () => {
   return (
-    <div className="App">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+    <div className={s.container}> 
+      <Main />
     </div>
   );
 }
