@@ -1,12 +1,13 @@
 import React from 'react'
 import ThemaForum from '../../Components/ThemaForum/ThemaForum'
 
-const News = () => {
+const News = (props) => {
+
+    let newsElements = props.newsData.map( newData => <ThemaForum text={newData.text} id={newData.id}/>)
+
     return (
         <div>
-            <ThemaForum text='text1' id='1'/>
-            <ThemaForum text='text2' id='2'/>
-            <ThemaForum text='text3' id='3'/>
+            {newsElements}
         </div>
     )
 }

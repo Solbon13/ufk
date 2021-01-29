@@ -7,13 +7,13 @@ import Forum from '../../Blocks/Forum/Forum'
 import Header from '../../Blocks/Header/Header'
 import News from '../../Blocks/News/News'
 
-const Main = () => {
+const Main = (props) => {
     return (
         <BrowserRouter>
             <div>
                 <Header />
                 <Filters />
-                <Route exact path='/' component={News} />
+                <Route exact path='/' render ={()=><News newsData={props.newsData}/>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />
             </div>
