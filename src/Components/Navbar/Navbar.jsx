@@ -7,10 +7,10 @@ const Navbar = () => {
         <div>
             <ul className={s.navMenu}>
                 <li className={s.navItem}><a className={s.navLinks} href="/">Главная</a></li>
-                <li className={s.navItem}><a className={s.navLinks} href="/">Документация</a></li>
-                <li className={s.navItem}><a className={s.navLinks} href="/">Форум</a></li>
-                <li className={s.navItem}><a className={s.navLinks} href="/">Диалоги</a></li>
-                <li className={s.navItem}><a className={s.navLinks} href="/">Рейтинг</a></li>
+                <li className={s.navItem}><a className={s.navLinks} href="/docs">Документация</a></li>
+                <li className={s.navItem}><a className={s.navLinks} href="/forum">Форум</a></li>
+                <li className={s.navItem}><a className={s.navLinks} href="/dialogs">Диалоги</a></li>
+                <li className={s.navItem}><a className={s.navLinks} href="/ratings">Рейтинг</a></li>
             </ul>
         </div>
     )
