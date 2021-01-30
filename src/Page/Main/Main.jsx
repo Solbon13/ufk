@@ -12,8 +12,9 @@ const Main = (props) => {
         <BrowserRouter>
             <div>
                 <Header />
-                <Filters filteringTheList = {props.filteringTheList}/>
-                <Route exact path='/' render ={()=><News newsData={props.newsData}/>} />
+                <Filters updateFilterText={props.updateFilterText}
+                filterText = {props.state.filterText}/>
+                <Route exact path='/' render ={()=><News newsData={props.state.newsData}/>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />
             </div>

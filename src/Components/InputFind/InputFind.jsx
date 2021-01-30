@@ -2,9 +2,18 @@ import React from 'react'
 import s from './InputFind.module.css'
 
 const InputField = (props) => {
+
+    let filterString =React.createRef()
+
+    const Change = () => {
+        props.updateFilterText(filterString.current.value)
+    }
+
     return (
         <div>
-            <input type="text" placeholder='Поиск' className={s.inputFind} ref={props.reftest}/>
+            <input type="text" placeholder='Поиск' 
+            className={s.inputFind} ref={filterString}
+            onChange = {Change} value={props.filterText}/>
         </div>
     )
 }

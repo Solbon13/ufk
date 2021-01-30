@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state, { filteringTheList } from './redux/state'
+import state, { updateFilterText } from './redux/state'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App newsData={state.newsData} filteringTheList = {filteringTheList}/>
+    <App state={state} 
+    updateFilterText = {updateFilterText}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
