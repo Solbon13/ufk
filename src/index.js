@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import state, { subscribe, updateFilterText } from './redux/state'
 import store from './redux/reduxStore';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
 const rerender = (state) => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dispatch={store.dispatch.bind(store)}/>
+      <BrowserRouter>
+        <Provider store = {store}>
+      <App />
+      </Provider>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -1,22 +1,20 @@
-import React from 'react'
+import { connect } from 'react-redux'
 import { changeFilterActionCreator, doFilterActionCreator } from '../../redux/newsReducer'
 import InputFind from './InputFind'
 
-const InputFindContainer = (props) => {
-
-    const Change = (text) => {
-        props.dispatch(changeFilterActionCreator(text))
+let mapStateToProps = (state) => {
+    return {
+        filterText: state.filterText
     }
-
-    const clickFind = () => {
-        props.dispatch(doFilterActionCreator())
-    }
-
-    return (<InputFind
-            Change = {Change} 
-            filterText={props.filterText}
-            clickFind= {clickFind}/>
-    )
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        Change: (text) => {dispatch(changeFilterActionCreator(text))},
+        clickFind: () => {dispatch(doFilterActionCreator())}
+    }
+}
+
+const InputFindContainer = connect(mapStateToProps, mapDispatchToProps)(InputFind)
 
 export default InputFindContainer

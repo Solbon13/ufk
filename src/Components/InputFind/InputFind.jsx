@@ -14,11 +14,11 @@ const InputFind = (props) => {
         props.clickFind()
     }
     return (
-        <div>
+        <div className={s.container}>
             <input type="text" placeholder='Поиск' 
             className={s.inputFind} ref={filterString}
             onChange = {onChange} value={props.filterText}/>
-            <button onClick= {onClick}>fdgdf</button>
+            <button onClick= {onClick}>&#128269;</button>
         </div>
     )
 }

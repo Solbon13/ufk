@@ -1,24 +1,24 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Docs from '../../Blocks/Docs/Docs'
-
 import Filters from '../../Blocks/Filters/Filters'
 import Forum from '../../Blocks/Forum/Forum'
 import Header from '../../Blocks/Header/Header'
-import News from '../../Blocks/News/News'
+import NewsContainer from '../../Blocks/News/NewsContainer'
 
-const Main = (props) => {
-    return (
-        <BrowserRouter>
+
+const Main = () => {
+    return (      
             <div>
                 <Header />
-                <Filters dispatch={props.dispatch}
-                filterText = {props.state.news.filterText}/>{/* продумать универсальность (пока по пути смотреть?) */}
-                <Route exact path='/' render ={()=><News newsData={props.state.news.newsData}/>} />
+                <Route exact path='/' render={() =>
+                    <>
+                        <Filters />{/* продумать универсальность (пока по пути смотреть? или будет рисоваться в компонентах внизу?) */}
+                        <NewsContainer />
+                    </>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />
             </div>
-        </BrowserRouter>
     )
 }
 

@@ -6,7 +6,7 @@ const App = (props) => {
 
   return (
     <div className={s.container}>
-      <Main state={props.state} dispatch={props.dispatch} />
+      <Main />
     </div>
   );
 }
