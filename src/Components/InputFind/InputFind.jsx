@@ -9,11 +9,16 @@ const InputField = (props) => {
         props.dispatch({type: 'SET_FILTER_TEXT', text: filterString.current.value})
     }
 
+    const clickFind = () => {
+        props.dispatch({type: 'DO_FILTERING'})
+    }
+
     return (
         <div>
             <input type="text" placeholder='Поиск' 
             className={s.inputFind} ref={filterString}
             onChange = {Change} value={props.filterText}/>
+            <button onClick= {clickFind}>fdgdf</button>
         </div>
     )
 }

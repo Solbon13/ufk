@@ -19,16 +19,29 @@ let store = {
         this._rerenderEntireTree = observer
     },
 
-    setFilterText(text) {
+    _setFilterText(text) {
         this._state.filterText = text
+        this._rerenderEntireTree()
+    },
+
+    _doFiltering() {
+        this._state.newsData = this._state.newsData.filter(newData => {
+            console.log(newData.text.toUpperCase())
+            console.log(this._state.filterText.toUpperCase())
+            return newData.text.toUpperCase().includes(this._state.filterText.toUpperCase())
+        })
         this._rerenderEntireTree()
     },
 
     dispatch(action) {
         //dispatch нужен для того чтобы было одна единственная функция доступная с наружи
         //минимум type для определения что именно сделать
-        if (action.type = 'SET_FILTER_TEXT')
-            this.setFilterText(action.text)
+        if (action.type === 'SET_FILTER_TEXT'){
+            this._setFilterText(action.text)
+        }
+        else if (action.type === 'DO_FILTERING'){
+            this._doFiltering()
+        }
     }
 }
 
