@@ -3,8 +3,6 @@ import newsReducer from "./newsReducer"
 //reducer это чистая функция которая принимает action или state и если нужно применяет этот action к этому statу и возвращает измененный или не измененый state
 //react библиотека которая отрисовывает UI
 //reducer не принимает весь state, а только то что нужно reducer. action действия
-const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
-const DO_FILTERING = 'DO_FILTERING'
 
 let store = {
     _state: {
@@ -35,14 +33,6 @@ let store = {
         this._state = newsReducer(this._state, action)
         this._rerenderEntireTree()
     }
-}
-
-export const doFilterActionCreator = () => {
-    return {type: DO_FILTERING}
-}
-
-export const changeFilterActionCreator = (text) => {
-    return {type: SET_FILTER_TEXT, text: text}
 }
 
 window.store = store;

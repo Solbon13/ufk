@@ -1,6 +1,14 @@
 const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
 const DO_FILTERING = 'DO_FILTERING'
 
+export const doFilterActionCreator = () => {
+    return {type: DO_FILTERING}
+}
+
+export const changeFilterActionCreator = (text) => {
+    return {type: SET_FILTER_TEXT, text: text}
+}
+
 const setFilterText = (state, text) => {
     state.filterText = text
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { doFilterActionCreator, changeFilterActionCreator } from '../../redux/store'
+import { changeFilterActionCreator, doFilterActionCreator } from '../../redux/newsReducer'
 import s from './InputFind.module.css'
 
 
