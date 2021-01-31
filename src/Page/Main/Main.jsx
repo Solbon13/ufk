@@ -13,7 +13,7 @@ const Main = (props) => {
             <div>
                 <Header />
                 <Filters dispatch={props.dispatch}
-                filterText = {props.state.filterText}/>
+                filterText = {props.state.news.filterText}/>{/* продумать универсальность (пока по пути смотреть?) */}
                 <Route exact path='/' render ={()=><News newsData={props.state.news.newsData}/>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />
