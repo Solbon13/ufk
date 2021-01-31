@@ -8,13 +8,15 @@ import Header from '../../Blocks/Header/Header'
 import News from '../../Blocks/News/News'
 
 const Main = (props) => {
+    debugger
     return (
         <BrowserRouter>
             <div>
                 <Header />
-                <Filters dispatch={props.store.dispatch.bind(props.store)}
-                filterText = {props.store.getState().filterText}/>
-                <Route exact path='/' render ={()=><News newsData={props.store.getState().newsData}/>} />
+                <Filters state={props.state} dispatch={props.dispatch}
+                
+                filterText = {props.state.filterText}/>
+                <Route exact path='/' render ={()=><News newsData={props.state.newsData}/>} />
                 <Route path='/Docs' component={Docs} />
                 <Route path='/forum' component={Forum} />
             </div>
