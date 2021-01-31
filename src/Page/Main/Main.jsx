@@ -12,7 +12,7 @@ const Main = (props) => {
         <BrowserRouter>
             <div>
                 <Header />
-                <Filters setFilterText={props.store.setFilterText.bind(props.store)}
+                <Filters dispatch={props.store.dispatch.bind(props.store)}
                 filterText = {props.store.getState().filterText}/>
                 <Route exact path='/' render ={()=><News newsData={props.store.getState().newsData}/>} />
                 <Route path='/Docs' component={Docs} />

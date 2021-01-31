@@ -8,7 +8,7 @@ const Filters = (props) => {
     return (
         <div className={s.container}>
             <button >fdgdf</button>
-            <InputField setFilterText={props.setFilterText}
+            <InputField dispatch={props.dispatch}
             filterText = {props.filterText}/>
         </div>
     )
