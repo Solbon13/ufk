@@ -3,7 +3,7 @@ import s from './ThemaForum.module.css'
 
 const ThemaForum = (props) => {
     return (
-        <div class={s.card}>
+        <div className={s.card}>
   <p>
     {props.id}
   </p>

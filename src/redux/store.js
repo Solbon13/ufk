@@ -1,3 +1,8 @@
+import newsReducer from "./newsReducer"
+//action это объект у которого как минимум есть type и именно action объект dispatch-им в store
+//reducer это чистая функция которая принимает action или state и если нужно применяет этот action к этому statу и возвращает измененный или не измененый state
+//react библиотека которая отрисовывает UI
+//reducer не принимает весь state, а только то что нужно reducer. action действия
 const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
 const DO_FILTERING = 'DO_FILTERING'
 
@@ -22,29 +27,13 @@ let store = {
         this._rerenderEntireTree = observer
     },
 
-    _setFilterText(text) {
-        this._state.filterText = text
-        this._rerenderEntireTree()
-    },
-
-    _doFiltering() {
-        this._state.newsData = this._state.newsData.filter(newData => {
-            console.log(newData.text.toUpperCase())
-            console.log(this._state.filterText.toUpperCase())
-            return newData.text.toUpperCase().includes(this._state.filterText.toUpperCase())
-        })
-        this._rerenderEntireTree()
-    },
-
     dispatch(action) {
         //dispatch нужен для того чтобы было одна единственная функция доступная с наружи
         //минимум type для определения что именно сделать
-        if (action.type === SET_FILTER_TEXT){
-            this._setFilterText(action.text)
-        }
-        else if (action.type === DO_FILTERING){
-            this._doFiltering()
-        }
+        //dispatch нужен для того чтобы было одна единственная функция доступная с наружи
+        //минимум type для определения что именно сделать
+        this._state = newsReducer(this._state, action)
+        this._rerenderEntireTree()
     }
 }
 
