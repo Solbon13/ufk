@@ -6,8 +6,7 @@ const App = (props) => {
 
   return (
     <div className={s.container}>
-      <Main state={props.state}
-        updateFilterText={props.updateFilterText} />
+      <Main store={props.store} />
     </div>
   );
 }

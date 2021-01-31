@@ -6,7 +6,7 @@ const InputField = (props) => {
     let filterString =React.createRef()
 
     const Change = () => {
-        props.updateFilterText(filterString.current.value)
+        props.setFilterText(filterString.current.value)
     }
 
     return (
