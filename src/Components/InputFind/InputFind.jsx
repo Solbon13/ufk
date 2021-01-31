@@ -1,16 +1,18 @@
 import React from 'react'
+import { doFilterActionCreator, changeFilterActionCreator } from '../../redux/store'
 import s from './InputFind.module.css'
+
 
 const InputField = (props) => {
 
     let filterString =React.createRef()
 
     const Change = () => {
-        props.dispatch({type: 'SET_FILTER_TEXT', text: filterString.current.value})
+        props.dispatch(changeFilterActionCreator(filterString.current.value))
     }
 
     const clickFind = () => {
-        props.dispatch({type: 'DO_FILTERING'})
+        props.dispatch(doFilterActionCreator())
     }
 
     return (

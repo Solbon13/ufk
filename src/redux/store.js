@@ -1,3 +1,6 @@
+const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
+const DO_FILTERING = 'DO_FILTERING'
+
 let store = {
     _state: {
         newsData: [
@@ -36,13 +39,21 @@ let store = {
     dispatch(action) {
         //dispatch нужен для того чтобы было одна единственная функция доступная с наружи
         //минимум type для определения что именно сделать
-        if (action.type === 'SET_FILTER_TEXT'){
+        if (action.type === SET_FILTER_TEXT){
             this._setFilterText(action.text)
         }
-        else if (action.type === 'DO_FILTERING'){
+        else if (action.type === DO_FILTERING){
             this._doFiltering()
         }
     }
+}
+
+export const doFilterActionCreator = () => {
+    return {type: DO_FILTERING}
+}
+
+export const changeFilterActionCreator = (text) => {
+    return {type: SET_FILTER_TEXT, text: text}
 }
 
 window.store = store;
