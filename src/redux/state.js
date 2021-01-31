@@ -8,8 +8,17 @@ let state = {
       filterText: '1'
 }
 
+let rerenderEntireTree = () => {
+    console.log('plug')
+}
+
 export const updateFilterText = (text) => {
     state.filterText = text
+    rerenderEntireTree()
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
 }
 
 Window.state = state;
