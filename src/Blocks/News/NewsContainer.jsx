@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { setNewsCreator } from '../../redux/newsReducer'
 import News from './News'
 
 let mapStateToProps = (state) => {
@@ -7,9 +8,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = () => {
+let mapDispatchToProps = (dispatch) => {
     return {
-        
+        setNews: (newsData) => {dispatch(setNewsCreator(newsData))}
     }
 }
 
