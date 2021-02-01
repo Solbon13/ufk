@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { setNewsCreator } from '../../redux/newsReducer'
 import News from './News'
+import NewsC from './NewsC'
 
 let mapStateToProps = (state) => {
     return {
@@ -14,6 +15,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const NewsContainer =  connect(mapStateToProps, mapDispatchToProps)(News)
+const NewsContainer =  connect(mapStateToProps, mapDispatchToProps)(NewsC)
 
 export default NewsContainer
