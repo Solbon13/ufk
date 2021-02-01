@@ -8,7 +8,7 @@ const ThemaForum = (props) => {
     {props.id}
   </p>
   <h2>
-    {props.text}
+    {props.name}
   </h2>
 </div>
     )

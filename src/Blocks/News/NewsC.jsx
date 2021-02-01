@@ -1,21 +1,31 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import Pagination from '../../Components/Pagination/Pagination'
 import ThemaForum from '../../Components/ThemaForum/ThemaForum'
 
 class NewsC extends React.Component {
 
-    componentDidMount () {
-        axios.get('http://').then(response => {this.props.setNews(response.data.newsData)})
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setNews(response.data.items)
+                this.props.setTotalNewsCount(response.data.totalCount)
+            })
     }
 
-    newsElements = this.props.newsData.map(newData =>
-        <ThemaForum key={newData.id} text={newData.text} id={newData.id} />)
 
-    render(){
+    render() {
+
         return (
             <div>
-                <button onClick={this.props.getNews}>get news</button>
-                {this.newsElements}
+                <Pagination 
+                totalNewsCount={this.props.totalNewsCount} currentPage={this.props.currentPage} pageSize={this.props.pageSize} 
+                setNews={this.props.setNews} 
+                setCurrentPage={this.props.setCurrentPage}
+                />
+                {this.props.newsData.map(newData => {
+                    return <ThemaForum key={newData.id} name={newData.name} id={newData.id}/>
+                })}
             </div>
         )
     }

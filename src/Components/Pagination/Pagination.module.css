@@ -1,0 +1,17 @@
+.pagination span {
+    color: black;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+    
+}
+
+.pagination span:hover:not(.active) {
+    color: black;
+    cursor: pointer;
+    background-color: #ddd;
+}
