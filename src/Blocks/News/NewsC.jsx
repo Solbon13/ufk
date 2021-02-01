@@ -1,7 +1,11 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Pagination from '../../Components/Pagination/Pagination'
 import ThemaForum from '../../Components/ThemaForum/ThemaForum'
+
+import { setNewsCreator, setCurrentPageCreator, setTotalNewsCountCreator } from '../../redux/newsReducer'
+
 
 class NewsC extends React.Component {
 
@@ -18,10 +22,10 @@ class NewsC extends React.Component {
 
         return (
             <div>
-                <Pagination 
-                totalNewsCount={this.props.totalNewsCount} currentPage={this.props.currentPage} pageSize={this.props.pageSize} 
-                setNews={this.props.setNews} 
-                setCurrentPage={this.props.setCurrentPage}
+                <NewPagination 
+                // totalNewsCount={this.props.totalNewsCount} currentPage={this.props.currentPage} pageSize={this.props.pageSize} 
+                // setNews={this.props.setNews} 
+                // setCurrentPage={this.props.setCurrentPage}
                 />
                 {this.props.newsData.map(newData => {
                     return <ThemaForum key={newData.id} name={newData.name} id={newData.id}/>
@@ -30,5 +34,22 @@ class NewsC extends React.Component {
         )
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        pageSize: state.news.pageSize,
+        totalNewsCount: state.news.totalNewsCount,
+        currentPage: state.news.currentPage
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        setNews: (newsData) => { dispatch(setNewsCreator(newsData)) },
+        setCurrentPage: (currentPage) => {dispatch(setCurrentPageCreator(currentPage))},
+    }
+}
+
+const NewPagination = connect(mapStateToProps, mapDispatchToProps)(Pagination)
 
 export default NewsC

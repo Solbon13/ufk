@@ -13,7 +13,7 @@ let initialState = {
     ],
     filterText: '1',
     //paginator
-    pageSize: 2,
+    pageSize: 50,
     totalNewsCount: 5,
     currentPage: 1
 }
