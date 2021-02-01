@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import ThemaForum from '../../Components/ThemaForum/ThemaForum'
 
 class NewsC extends React.Component {
-    getNews = () => {
+
+    componentDidMount () {
         axios.get('http://').then(response => {this.props.setNews(response.data.newsData)})
     }
 
