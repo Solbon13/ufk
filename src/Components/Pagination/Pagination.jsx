@@ -17,9 +17,10 @@ const Pagination = (props) => {
 
     return (
         <div className={s.pagination}>
-            {pagesCountArray.map((pageCount) =>
-                <span className={pageCount === props.currentPage ? s.active : ''}
-                    onClick={() => props.getNews(pageCount)}> {pageCount} </span>)}
+            {pagesCountArray.map((pageCount) =>{
+                return (<span key={pageCount} className={pageCount === props.currentPage ? s.active : ''}
+                    onClick={() => props.getNews(pageCount)}> {pageCount} </span>)
+            })}
             {/* {pagesCountElements} */}
         </div>
     )

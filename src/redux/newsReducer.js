@@ -3,19 +3,16 @@ const DO_FILTERING = 'DO_FILTERING'
 const SET_NEWS = 'SET_NEWS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_NEWS_COUNT = 'SET_TOTAL_NEWS_COUNT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
-    newsData: [
-        { id: 1, name: 'text1' },
-        { id: 2, name: 'text1' },
-        { id: 3, name: 'text1' },
-        { id: 4, name: 'redux' },
-    ],
+    newsData: [],
     filterText: '1',
     //paginator
     pageSize: 50,
     totalNewsCount: 5,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 }
 const newsReducer = (state = initialState, action) => {
 
@@ -47,6 +44,11 @@ const newsReducer = (state = initialState, action) => {
                 ...state,
                 totalNewsCount: action.totalNewsCount
             }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state
     }
@@ -70,6 +72,9 @@ export const setCurrentPageCreator = (currentPage) => {
 
 export const setTotalNewsCountCreator = (totalNewsCount) => {
     return { type: SET_TOTAL_NEWS_COUNT, totalNewsCount: totalNewsCount }
+}
+export const toggleIsFetchingCreator = (isFetching) => {
+    return { type: TOGGLE_IS_FETCHING, isFetching: isFetching }
 }
 
 export default newsReducer
