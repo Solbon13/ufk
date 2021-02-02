@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { changeFilterActionCreator, doFilterActionCreator } from '../../redux/newsReducer'
+import { changeFilterAction, doFilterAction } from '../../redux/newsReducer'
 import InputFind from './InputFind'
 
 let mapStateToProps = (state) => {
@@ -10,8 +10,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        Change: (text) => {dispatch(changeFilterActionCreator(text))},
-        clickFind: () => {dispatch(doFilterActionCreator())}
+        Change: (text) => {dispatch(changeFilterAction(text))},
+        clickFind: () => {dispatch(doFilterAction())}
     }
 }
 

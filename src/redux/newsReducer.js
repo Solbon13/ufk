@@ -24,8 +24,8 @@ const newsReducer = (state = initialState, action) => {
             }
         case DO_FILTERING:
             return {
-                ...initialState,
-                newsData: initialState.newsData.filter(newData => {
+                ...state,
+                newsData: state.newsData.filter(newData => {
                     return newData.name.toUpperCase().includes(state.filterText.toUpperCase())
                 })
             }
@@ -54,26 +54,26 @@ const newsReducer = (state = initialState, action) => {
     }
 }
 
-export const doFilterActionCreator = () => {
+export const doFilterAction = () => {
     return { type: DO_FILTERING }
 }
 
-export const changeFilterActionCreator = (text) => {
+export const changeFilterAction = (text) => {
     return { type: SET_FILTER_TEXT, text: text }
 }
 
-export const setNewsCreator = (newsData) => {
+export const setNews = (newsData) => {
     return { type: SET_NEWS, newsData: newsData }
 }
 
-export const setCurrentPageCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage: currentPage }
 }
 
-export const setTotalNewsCountCreator = (totalNewsCount) => {
+export const setTotalNewsCount = (totalNewsCount) => {
     return { type: SET_TOTAL_NEWS_COUNT, totalNewsCount: totalNewsCount }
 }
-export const toggleIsFetchingCreator = (isFetching) => {
+export const toggleIsFetching = (isFetching) => {
     return { type: TOGGLE_IS_FETCHING, isFetching: isFetching }
 }
 

@@ -1,31 +1,31 @@
 import axios from 'axios'
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Pagination from '../../Components/Pagination/Pagination'
 import ThemaForum from '../../Components/ThemaForum/ThemaForum'
 
-import { setNewsCreator, setCurrentPageCreator, setTotalNewsCountCreator } from '../../redux/newsReducer'
+import { setNews, setCurrentPage } from '../../redux/newsReducer'
 import Preloader from '../../Components/Preloader/Preloader'
 
 
 class NewsC extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetchingCreator(true)
+        this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setNews(response.data.items)
                 this.props.setTotalNewsCount(response.data.totalCount)
-                this.props.toggleIsFetchingCreator(false)
+                this.props.toggleIsFetching(false)
             })
 
     }
 
     getNews = (currentPage) => {
-        this.props.toggleIsFetchingCreator(true)
+        this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
             .then(response => {
-                this.props.toggleIsFetchingCreator(false)
+                this.props.toggleIsFetching(false)
                 this.props.setNews(response.data.items)
                 this.props.setCurrentPage(currentPage)
             })
@@ -57,8 +57,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setNews: (newsData) => { dispatch(setNewsCreator(newsData)) },
-        setCurrentPage: (currentPage) => { dispatch(setCurrentPageCreator(currentPage)) },
+        setNews: (newsData) => { dispatch(setNews(newsData)) },
+        setCurrentPage: (currentPage) => { dispatch(setCurrentPage(currentPage)) },
     }
 }
 
