@@ -17,16 +17,19 @@ class NewsC extends React.Component {
             })
     }
 
+    getNews = (currentPage) => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setNews(response.data.items)
+                this.props.setCurrentPage(currentPage)
+            })
+    }
 
     render() {
 
         return (
             <div>
-                <NewPagination 
-                // totalNewsCount={this.props.totalNewsCount} currentPage={this.props.currentPage} pageSize={this.props.pageSize} 
-                // setNews={this.props.setNews} 
-                // setCurrentPage={this.props.setCurrentPage}
-                />
+                <NewPagination getNews={this.getNews}/>
                 {this.props.newsData.map(newData => {
                     return <ThemaForum key={newData.id} name={newData.name} id={newData.id}/>
                 })}
