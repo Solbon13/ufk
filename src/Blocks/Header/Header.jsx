@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import Navbar from '../../Components/Navbar/Navbar'
 
@@ -8,9 +9,9 @@ const Header = () => {
     return (
         <nav className={s.navbar}>
             <div className={s.navbarContainer}>
-                <a href="" className={s.navbarLogo}>
+                <NavLink to="/main" className={s.navbarLogo}>
                     <img src="./images/logo.png" alt="Logo" />
-                </a>
+                </NavLink>
             <Navbar />
             <Button >Авторизация</Button>
             </div>

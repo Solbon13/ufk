@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import s from './ThemaForum.module.css'
 
 const ThemaForum = (props) => {
@@ -7,9 +8,11 @@ const ThemaForum = (props) => {
   <p>
     {props.id}
   </p>
+  <NavLink to={'/docs/'+ props.id}>
   <h2>
     {props.name}
   </h2>
+  </NavLink>
 </div>
     )
 }

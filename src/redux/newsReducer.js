@@ -4,6 +4,7 @@ const SET_NEWS = 'SET_NEWS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_NEWS_COUNT = 'SET_TOTAL_NEWS_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+const SET_NEW_DETAIL = 'SET_NEW_DETAIL'
 
 let initialState = {
     newsData: [],
@@ -12,7 +13,10 @@ let initialState = {
     pageSize: 50,
     totalNewsCount: 5,
     currentPage: 1,
-    isFetching: true
+    //preloader
+    isFetching: true,
+    //newDetail
+    newDetail: null
 }
 const newsReducer = (state = initialState, action) => {
 
@@ -49,6 +53,11 @@ const newsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
+        case SET_NEW_DETAIL:
+            return {
+                ...state,
+                newDetail: action.newDetail
+            }
         default:
             return state
     }
@@ -75,6 +84,9 @@ export const setTotalNewsCount = (totalNewsCount) => {
 }
 export const toggleIsFetching = (isFetching) => {
     return { type: TOGGLE_IS_FETCHING, isFetching: isFetching }
+}
+export const setNewDetail = (newDetail) => {
+    return { type: SET_NEW_DETAIL, newDetail } // === { type: SET_NEW_DETAIL, newDetail: newDetail }
 }
 
 export default newsReducer

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { setNews, setCurrentPage, setTotalNewsCount, toggleIsFetching } from '../../redux/newsReducer'
-import News from './News'
+// import News from './News'
 import NewsC from './NewsC'
 
 let mapStateToProps = (state) => {

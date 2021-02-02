@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react'
 import s from './Pagination.module.css'
 
@@ -11,9 +10,9 @@ const Pagination = (props) => {
         pagesCountArray.push(index);
     }
 
-    let pagesCountElements = pagesCountArray.map((pageCount) =>
-        <span className={pageCount === 2 ? s.active : ''}
-            onClick={() => props.getNews(pageCount)}> {pageCount} </span>)
+    // let pagesCountElements = pagesCountArray.map((pageCount) =>
+    //     <span className={pageCount === 2 ? s.active : ''}
+    //         onClick={() => props.getNews(pageCount)}> {pageCount} </span>)
 
     return (
         <div className={s.pagination}>
