@@ -5,7 +5,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 import s from './Header.module.css'
 
-const Header = () => {
+const Header = (props) => {
     return (
         <nav className={s.navbar}>
             <div className={s.navbarContainer}>
@@ -13,7 +13,7 @@ const Header = () => {
                     <img src="./images/logo.png" alt="Logo" />
                 </NavLink>
             <Navbar />
-            <Button >Авторизация</Button>
+            <Button >{props.isAuth ? props.login : 'Авторизация'}</Button>
             </div>
         </nav>
     )
